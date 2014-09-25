@@ -52,3 +52,7 @@ hogehoge
 ```
 
 See [Testcase](https://github.com/chatwork/slim-post-json-request/blob/master/tests/JsonPostRequestMiddlewareTest.php).
+
+## LICENCE
+
+MIT
