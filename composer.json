@@ -1,6 +1,19 @@
 {
     "name": "chatwork/slim-post-json-request",
+    "type": "library",
+    "version": "1.0.0",
     "description": "Slim middleware for supporting post json",
+    "keywords": ["slim","json","middleware"],
+    "homepage": "https://github.com/chatwork/slim-post-json-request",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "cw-tanaka",
+            "email": "cw-tanaka@gmail.com",
+            "homepage": "https://github.com/cw-tanaka",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "slim/slim": "2.*"
     },
