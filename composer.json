@@ -1,0 +1,21 @@
+{
+    "name": "chatwork/slim-post-json-request",
+    "description": "Slim middleware for supporting post json",
+    "require": {
+        "slim/slim": "2.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "there4/slim-test-helpers": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cw\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cw\\": "test/"
+        }
+    }
+}
