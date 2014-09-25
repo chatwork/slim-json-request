@@ -10,12 +10,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Cw\\": "src/"
+            "Chatwork\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Cw\\": "test/"
+            "Chatwork\\": "test/"
         }
     }
 }

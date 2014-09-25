@@ -1,9 +1,9 @@
 <?php
 
-namespace Cw;
+namespace Chatwork;
 
 use Slim\Slim;
-use Cw\JsonPostRequestMiddleware;
+use Chatwork\JsonPostRequestMiddleware;
 use There4\Slim\Test\WebTestCase;
 
 class JsonPostRequestMiddlewareTest extends WebTestCase

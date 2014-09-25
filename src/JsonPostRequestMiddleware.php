@@ -1,6 +1,6 @@
 <?php
 
-namespace Cw;
+namespace Chatwork;
 
 use Slim\Middleware;
 
