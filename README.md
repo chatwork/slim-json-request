@@ -1,4 +1,4 @@
-slim-post-json-request
+slim-json-request
 ======================
 
 [Slim](https://github.com/codeguy/Slim) middleware for supporting post json
