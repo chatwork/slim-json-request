@@ -3,6 +3,7 @@
 namespace Chatwork;
 
 use Slim\Middleware;
+use Chatwork\Exception\InvalidJsonFormatException;
 
 class JsonRequestMiddleware extends Middleware
 {
@@ -17,7 +18,7 @@ class JsonRequestMiddleware extends Middleware
 
                 if (json_last_error() !== JSON_ERROR_NONE) {
                     $err_msg = sprintf('Post body is not json format: %s', $post);
-                    throw new \UnexpectedValueException($err_msg);
+                    throw new InvalidJsonFormatException($err_msg);
                 }
 
                 $app->json_body = $params;

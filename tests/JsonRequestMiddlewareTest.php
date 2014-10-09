@@ -4,6 +4,7 @@ namespace Chatwork;
 
 use Slim\Slim;
 use Chatwork\JsonRequestMiddleware;
+use Chatwork\Exception\InvalidJsonFormatException;
 use There4\Slim\Test\WebTestCase;
 
 class JsonRequestMiddlewareTest extends WebTestCase
@@ -42,7 +43,7 @@ class JsonRequestMiddlewareTest extends WebTestCase
             $app->response->setBody('message:' . $json['message']);
         });
 
-        $app->error(function(\UnexpectedValueException $e) use ($app) {
+        $app->error(function(InvalidJsonFormatException $e) use ($app) {
             $app->response->setBody('error:' . $e->getMessage());
         });
 

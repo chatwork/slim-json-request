@@ -5,7 +5,7 @@ slim-post-json-request
 
 ## Installation
 
-Using composer. 
+Using composer.
 
 ```json
     {
