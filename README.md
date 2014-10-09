@@ -11,7 +11,7 @@ Using composer.
     {
         "require": {
             "slim/slim": "2.4.*",
-            "chatwork/slim-post-json-request": "dev-master"
+            "chatwork/slim-json-request": "dev-master"
         }
     }
 ```
@@ -19,24 +19,24 @@ Using composer.
 
 ## Usage
 
-Add `Chatwork\JsonPostRequestMiddleware` in your `Slim` application.
+Add `Chatwork\JsonRequestMiddleware` in your `Slim` application.
 
 ```php
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
 use Slim\Slim;
-use Chatwork\JsonPostRequestMiddleware;
+use Chatwork\JsonRequestMiddleware;
 
 $app = new Slim(array(
   'debug' => true,
 ));
 
-$app->add(new JsonPostRequestMiddleware());
+$app->add(new JsonRequestMiddleware());
 
 $app->post('/messages', function() use ($app) {
-    // Set json data to `$app->post_json` as array.
-    echo $app->post_json['body'];
+    // Set json data to `$app->json_body` as array.
+    echo $app->json_body['msg'];
 });
 
 $app->run();
@@ -46,12 +46,12 @@ Execute http request:
 
 ```
 [cw-tanaka@macbook] % curl -H'Content-Type: application/json' http://localhost:9876/messages -X POST -d '{
-"body": "hogehoge"
+"msg": "hogehoge"
 }'
 hogehoge
 ```
 
-See [Testcase](https://github.com/chatwork/slim-post-json-request/blob/master/tests/JsonPostRequestMiddlewareTest.php).
+See [Testcase](https://github.com/chatwork/slim-json-request/blob/master/tests/JsonRequestMiddlewareTest.php).
 
 ## LICENSE
 
