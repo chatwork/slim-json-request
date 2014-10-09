@@ -3,10 +3,10 @@
 namespace Chatwork;
 
 use Slim\Slim;
-use Chatwork\JsonPostRequestMiddleware;
+use Chatwork\JsonRequestMiddleware;
 use There4\Slim\Test\WebTestCase;
 
-class JsonPostRequestMiddlewareTest extends WebTestCase
+class JsonRequestMiddlewareTest extends WebTestCase
 {
 
     public function setUp()
@@ -35,10 +35,10 @@ class JsonPostRequestMiddlewareTest extends WebTestCase
             'debug' => false,
         ));
 
-        $app->add(new JsonPostRequestMiddleware());
+        $app->add(new JsonRequestMiddleware());
 
         $app->post('/messages', function() use ($app) {
-            $json = $app->post_json;
+            $json = $app->json_body;
             $app->response->setBody('message:' . $json['message']);
         });
 

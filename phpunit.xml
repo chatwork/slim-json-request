@@ -7,7 +7,7 @@
     backupGlobals="false">
     <testsuites>
         <testsuite name="Cw">
-            <directory suffix="Test.php">./tests</directory>
+            <file>./tests/JsonRequestMiddlewareTest.php</file>
         </testsuite>
     </testsuites>
 </phpunit>

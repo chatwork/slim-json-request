@@ -1,10 +1,10 @@
 {
-    "name": "chatwork/slim-post-json-request",
+    "name": "chatwork/slim-json-request",
     "type": "library",
     "version": "1.0.0",
-    "description": "Slim middleware for supporting post json",
+    "description": "Slim middleware for supporting json request",
     "keywords": ["slim","json","middleware"],
-    "homepage": "https://github.com/chatwork/slim-post-json-request",
+    "homepage": "https://github.com/chatwork/slim-json-request",
     "license": "MIT",
     "authors": [
         {

@@ -4,23 +4,23 @@ namespace Chatwork;
 
 use Slim\Middleware;
 
-class JsonPostRequestMiddleware extends Middleware
+class JsonRequestMiddleware extends Middleware
 {
     public function call()
     {
         $app = $this->app;
 
         $app->hook('slim.before.router', function () use ($app) {
-            $post = $app->request->getBody();
-            if ($app->request->getMediaType() == 'application/json' && !empty($post)) {
-                $params = json_decode($post, true);
+            $body = $app->request->getBody();
+            if ($app->request->getMediaType() == 'application/json' && !empty($body)) {
+                $params = json_decode($body, true);
 
                 if (json_last_error() !== JSON_ERROR_NONE) {
                     $err_msg = sprintf('Post body is not json format: %s', $post);
                     throw new \UnexpectedValueException($err_msg);
                 }
 
-                $app->post_json = $params;
+                $app->json_body = $params;
             }
         });
 
