@@ -22,6 +22,8 @@ class JsonRequestMiddleware extends Middleware
                 }
 
                 $app->json_body = $params;
+            } else {
+                $app->json_body = array();
             }
         });
 

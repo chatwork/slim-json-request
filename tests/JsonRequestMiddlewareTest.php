@@ -40,7 +40,12 @@ class JsonRequestMiddlewareTest extends WebTestCase
 
         $app->post('/messages', function() use ($app) {
             $json = $app->json_body;
-            $app->response->setBody('message:' . $json['message']);
+
+            if (empty($json)) {
+                $app->response->setBody('empty json');
+            } else {
+                $app->response->setBody('message:' . $json['message']);
+            }
         });
 
         $app->error(function(InvalidJsonFormatException $e) use ($app) {
@@ -66,7 +71,7 @@ class JsonRequestMiddlewareTest extends WebTestCase
             'slim.input'   => json_encode(array('message' => 'hogehoge')),
         ));
 
-        $this->assertSame('message:', $this->client->response->getBody());
+        $this->assertSame('empty json', $this->client->response->getBody());
     }
 
     public function testPostNotJsonFormatString()
