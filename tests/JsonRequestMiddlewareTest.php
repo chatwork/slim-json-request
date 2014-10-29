@@ -36,7 +36,9 @@ class JsonRequestMiddlewareTest extends WebTestCase
             'debug' => false,
         ));
 
-        $app->add(new JsonRequestMiddleware());
+        $app->add(new JsonRequestMiddleware([
+            'json_as_object' => true,
+        ]));
 
         $app->post('/messages', function() use ($app) {
             $json = $app->json_body;
@@ -44,7 +46,7 @@ class JsonRequestMiddlewareTest extends WebTestCase
             if (empty($json)) {
                 $app->response->setBody('empty json');
             } else {
-                $app->response->setBody('message:' . $json['message']);
+                $app->response->setBody('message:' . $json->message);
             }
         });
 
