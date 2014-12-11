@@ -17,7 +17,7 @@ class JsonRequestMiddleware extends Middleware
                 $params = json_decode($body, true);
 
                 if (json_last_error() !== JSON_ERROR_NONE) {
-                    $err_msg = sprintf('Post body is not json format: %s', $post);
+                    $err_msg = sprintf('Post body is not json format: %s', $body);
                     throw new InvalidJsonFormatException($err_msg);
                 }
 
