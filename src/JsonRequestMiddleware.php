@@ -39,7 +39,12 @@ class JsonRequestMiddleware extends Middleware
         $app->hook('slim.before.router', function () use ($app) {
             $body = $app->request->getBody();
             if ($app->request->getMediaType() == 'application/json' && !empty($body)) {
-                $params = json_decode($body, !$this->config['json_as_object']);
+                try {
+                    $params = json_decode($body, !$this->config['json_as_object']);
+                } catch (\ErrorException $e) {
+                    $err_msg = sprintf('Post body is not json format: %s', $body);
+                    throw new InvalidJsonFormatException($err_msg);
+                }
 
                 if (json_last_error() !== JSON_ERROR_NONE) {
                     $err_msg = sprintf('Post body is not json format: %s', $body);
