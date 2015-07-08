@@ -42,7 +42,9 @@ class JsonRequestMiddleware extends Middleware
                 try {
                     $params = json_decode($body, !$this->config['json_as_object']);
                 } catch (\ErrorException $e) {
-                    $err_msg = sprintf('Post body is not json format: %s', $body);
+                    $err_msg = sprintf(
+                        'Unknown error occured: %s, json: %s',
+                        str_replace("json_decode(): ", "", $e->getMessage()), $body);
                     throw new InvalidJsonFormatException($err_msg);
                 }
 
